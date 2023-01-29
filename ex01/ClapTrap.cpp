@@ -80,7 +80,7 @@ void	ClapTrap::setAttack(int attack) {
 
 void ClapTrap::attack(const std::string& target) {
 	if (this->_energy_points > 0 && this->_hit_points > 0) {
-		std::cout << this->_type + " " + this->_name + " attacks " + target + ", causing " + std::to_string(this->_attack_damage) + " points of damage!" << std::endl;
+		std::cout << this->_type + " " + this->_name + " attacks " + target + ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 		this->_energy_points--;
 	} else {
 		std::cout << this->_type + " " + this->_name + " is unable to attack " + target + "!\n";
@@ -89,14 +89,14 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
 	this->_hit_points -= amount;
-	std::cout << this->_type + " " + this->_name + " takes " + std::to_string(amount) + " points of damage! Now " + this->_name + " has " + std::to_string(this->_hit_points) + " hit points." << std::endl;
+	std::cout << this->_type + " " + this->_name + " takes " << amount << " points of damage! Now " + this->_name + " has " << this->_hit_points << " hit points." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_energy_points > 0 && this->_hit_points > 0) {
 		this->_energy_points--;
 		this->_hit_points += amount;
-		std::cout << this->_type + " " + this->_name + " has repaired " + std::to_string(amount) + " hit points to itself. Now " + this->_name + " has " + std::to_string(this->_hit_points) + " hit points.\n";
+		std::cout << this->_type + " " + this->_name + " has repaired " << amount << " hit points to itself. Now " + this->_name + " has " << this->_hit_points << " hit points.\n";
 	} else {
 		std::cout << this->_type + " " + this->_name + " is unable to reapair itself!\n";
 	}
